@@ -13,13 +13,19 @@
         android:theme="@style/Theme.ViewsAndEvents"
         tools:targetApi="31">
         <activity
+            android:name=".Lession2SecondActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".Screen3Activity"
             android:exported="false" />
         <activity
             android:name=".Screen2Activity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Lession2FirstActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

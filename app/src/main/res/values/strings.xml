@@ -27,4 +27,15 @@
     <string name="r1">R1</string>
     <string name="r2">R2</string>
     <string name="search">Search</string>
+    <string name="view_in_grid">View in Grid</string>
+    <string name="share_log">Share Log</string>
+    <string name="share_log_via">Share log via</string>
+    <string name="app_started">App Started</string>
+    <string name="app_restarted">App Restarted</string>
+    <string name="app_resumed">App Resumed</string>
+    <string name="app_paused">App Paused</string>
+    <string name="app_stopped">App Stopped</string>
+    <string name="app_destroyed">App Destroyed</string>
+    <string name="app_created">App Created</string>
+    <string name="lifecycle_events">Lifecycle Events</string>
 </resources>

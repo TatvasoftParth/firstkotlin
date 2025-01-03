@@ -1,0 +1,39 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8dp"
+        android:layout_marginBottom="@dimen/_8dp"
+        android:text="@string/lifecycle_events"
+        android:textSize="@dimen/_18sp"
+        android:textStyle="bold" />
+
+    <!-- Wrapping ListView in a NestedScrollView -->
+    <ListView
+        android:id="@+id/lifecycle_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="@dimen/_1dp" />
+
+
+    <Button
+        android:id="@+id/btn_view_grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/view_in_grid" />
+
+    <Button
+        android:id="@+id/btn_share_log"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8dp"
+        android:text="@string/share_log" />
+</LinearLayout>
