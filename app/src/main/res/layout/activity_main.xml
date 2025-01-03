@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#F5F5F5">
+
+    <!-- Center Top Header -->
+    <TextView
+        android:id="@+id/tvHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_16dp"
+        android:text="@string/registration"
+        android:textSize="@dimen/_24sp"
+        android:textStyle="bold"
+        android:textColor="#000" />
+
+    <!-- Form Layout -->
+    <LinearLayout
+        android:id="@+id/formLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvHeader"
+        android:layout_marginTop="@dimen/_24dp"
+        android:orientation="vertical"
+        android:padding="@dimen/_8dp">
+
+        <!-- User Name -->
+        <EditText
+            android:id="@+id/etUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/user_name"
+            android:inputType="textPersonName"
+            android:padding="@dimen/_10dp" />
+
+        <!-- User Email -->
+        <EditText
+            android:id="@+id/etUserEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/user_email"
+            android:inputType="textEmailAddress"
+            android:padding="@dimen/_10dp"
+            android:layout_marginTop="@dimen/_8dp" />
+
+        <!-- User Password -->
+        <EditText
+            android:id="@+id/etUserPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:padding="@dimen/_10dp"
+            android:layout_marginTop="@dimen/_8dp" />
+
+        <!-- Contact Number -->
+        <EditText
+            android:id="@+id/etContactNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/contact_number"
+            android:inputType="phone"
+            android:padding="@dimen/_10dp"
+            android:layout_marginTop="@dimen/_8dp" />
+
+        <!-- Age Picker -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/age"
+                android:textSize="@dimen/_16sp"
+                android:layout_gravity="center_vertical" />
+
+            <NumberPicker
+                android:id="@+id/agePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/_16dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Next Button -->
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/_16dp"
+        android:text="@string/next"
+        android:backgroundTint="@color/primary"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:padding="@dimen/_12dp" />
+</RelativeLayout>

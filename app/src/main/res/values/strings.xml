@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">ViewsAndEvents</string>
+    <string name="registration">Registration</string>
+    <string name="user_name">User Name</string>
+    <string name="user_email">User Email</string>
+    <string name="password">Password</string>
+    <string name="contact_number">Contact Number</string>
+    <string name="age">Age: </string>
+    <string name="next">Next</string>
+    <string name="user_name_validaiton_error">Please enter your name.</string>
+    <string name="email_validation_error">Please enter a valid email.</string>
+    <string name="password_validation_error">Password must be at least 6 characters.</string>
+    <string name="contact_number_validation_error">Please enter a valid contact number.</string>
+    <string name="age_validation_success_message">All details are valid. Age:</string>
+    <string name="login_icon">Login</string>
+    <string name="admin_cpi_com">admin@cpi.com</string>
+    <string name="admin_123">Admin@123</string>
+    <string name="option3">9sdasd68456454</string>
+    <string name="option4">Klsdhsa8zsasad455ads4a</string>
+    <string name="authorize">Authorize</string>
+    <string name="info_text">By using Grant Type Password you will not able to use User Management</string>
+    <string name="bottom">Bottom</string>
+    <string name="l2">L2</string>
+    <string name="top">Top</string>
+    <string name="center">Center</string>
+    <string name="l1">L1</string>
+    <string name="r1">R1</string>
+    <string name="r2">R2</string>
+    <string name="search">Search</string>
+</resources>
