@@ -3,38 +3,33 @@ package com.viewsandevents
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.ListView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.viewsandevents.databinding.ActivityLession2FirstBinding
 
 class Lession2FirstActivity : AppCompatActivity() {
 
     private val lifecycleLogs = mutableListOf<String>()
-    private lateinit var listView: ListView
-    private lateinit var btnViewGrid: Button
-    private lateinit var btnShareLog: Button
+    private lateinit var binding: ActivityLession2FirstBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_lession2_first)
-
-        listView = findViewById(R.id.lifecycle_list)
-        btnViewGrid = findViewById(R.id.btn_view_grid)
-        btnShareLog = findViewById(R.id.btn_share_log)
+        binding = ActivityLession2FirstBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, lifecycleLogs)
-        listView.adapter = adapter
+        binding.lifecycleList.adapter = adapter
 
         logLifecycleEvent(getString(R.string.app_created))
 
-        btnViewGrid.setOnClickListener {
+        binding.btnViewGrid.setOnClickListener {
             val intent = Intent(this, Lession2SecondActivity::class.java)
             intent.putStringArrayListExtra("logs", ArrayList(lifecycleLogs))
             startActivity(intent)
         }
 
-        btnShareLog.setOnClickListener {
+        binding.btnShareLog.setOnClickListener {
             val shareIntent = Intent(Intent.ACTION_SEND).apply {
                 type = "text/plain"
                 putExtra(Intent.EXTRA_TEXT, lifecycleLogs.joinToString("\n"))
@@ -76,6 +71,6 @@ class Lession2FirstActivity : AppCompatActivity() {
     private fun logLifecycleEvent(event: String) {
         val timestamp = System.currentTimeMillis()
         lifecycleLogs.add("$event at $timestamp")
-        (listView.adapter as ArrayAdapter<*>).notifyDataSetChanged()
+        (binding.lifecycleList.adapter as ArrayAdapter<*>).notifyDataSetChanged()
     }
 }
