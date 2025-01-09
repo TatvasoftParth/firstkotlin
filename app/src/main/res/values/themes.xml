@@ -11,4 +11,12 @@
         <item name="colorOnSurface">@color/green</item>
         <item name="colorError">@color/black</item>
     </style>
+    <style name="Theme.Status" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:statusBarColor">@color/green</item>
+    </style>
+    <style name="CustomSpinnerStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
+        <item name="boxStrokeColor">@color/primary</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
 </resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:checkableBehavior="single">
+    <item android:id="@+id/add_book" android:checked="true"
+        android:title="@string/add_book" android:icon="@drawable/ic_circle_outline" />
+    <item android:id="@+id/list_book"
+        android:title="@string/book_list" android:icon="@drawable/ic_checklist" />
+    </group>
+</menu>
