@@ -56,4 +56,8 @@
     <string name="book_list_fragment">Book List Fragment</string>
     <string name="book_name">Book Name</string>
     <string name="author_name">Author Name</string>
+    <string name="edit">Edit</string>
+    <string name="book_type">Book Type</string>
+    <string name="genre">Genre</string>
+    <string name="launch_date">Launch Date</string>
 </resources>
