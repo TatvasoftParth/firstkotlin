@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class BookAdapter(
-    private val books: List<Book>,
+    private var books: List<Book>,
     private val onItemClick: (Book) -> Unit // Lambda for click listener
 ) : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
 
@@ -35,4 +35,10 @@ class BookAdapter(
     }
 
     override fun getItemCount(): Int = books.size
+
+    // Update the adapter with a new list of books
+    fun updateBooks(newBooksList: List<Book>) {
+        books = newBooksList
+        notifyDataSetChanged()
+    }
 }

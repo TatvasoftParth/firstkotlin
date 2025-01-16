@@ -73,15 +73,20 @@ class AddBookFragment : Fragment() {
                 "60+ years old" to binding.checkboxAge60Plus
             )
 
-            val ages = arguments?.getString("age_groups").toString().replace("[", "") // Remove opening bracket
-                .replace("]", "") // Remove closing bracket
-                .trim()
-//            Log.d("Ages", "onCreate: $ages")
-//            val selectedValues = arrayOf("5-12 years old", "20-39 years old") // Example selected values
+            val ages = arguments?.getString("age_groups")
+            if (ages != null) {
+                val ageGroupsArray = ages
+                    .removeSurrounding("[", "]") // Remove the square brackets
+                    .split(",")                  // Split by comma
+                    .map { it.trim() }           // Trim whitespace from each element
 
-//            for (value in selectedValues) {
-//                checkBoxMap[value]?.isChecked = true
-//            }
+                // Convert to an array
+                val ageGroups = ageGroupsArray.toTypedArray()
+
+                for (value in ageGroups) {
+                    checkBoxMap[value]?.isChecked = true
+                }
+            }
         }
 
         // Retrieve the saved data from SharedPreferences
@@ -201,7 +206,7 @@ class AddBookFragment : Fragment() {
     // Method to save data to SharedPreferences
     private fun saveDataToSharedPreferences() {
         val bookJson = sharedPreferences.getString("books", null)
-        var id: Int = 1
+        var id = 1
 
         if (bookJson != null) {
             // Deserialize the JSON string back to a list of books
@@ -241,10 +246,10 @@ class AddBookFragment : Fragment() {
         if(bookId == 0) {
             booksList.add(book)
         } else {
-            updatedBookList = booksList.map { book ->
-                Log.d("ID5", "saveDataToSharedPreferences: ${book.id == bookId}")
-                if (book.id == bookId) {
-                    book.copy(
+            updatedBookList = booksList.map { bookItem ->
+                Log.d("ID5", "saveDataToSharedPreferences: ${bookItem.id == bookId}")
+                if (bookItem.id == bookId) {
+                    bookItem.copy(
                         bookName = bookName,
                         authorName = authorName,
                         type = radioButton,
@@ -253,7 +258,7 @@ class AddBookFragment : Fragment() {
                         ageGroups = ageGroups
                     )
                 } else {
-                    book // Keep the book unchanged if the ID does not match
+                    bookItem // Keep the book unchanged if the ID does not match
                 }
             }.toMutableList()
 

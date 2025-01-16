@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -29,6 +31,8 @@ class BookListFragment : Fragment() {
     private lateinit var binding: FragmentBookListBinding
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var editor: SharedPreferences.Editor
+    private lateinit var bookAdapter: BookAdapter
+
     private val gson = Gson()
 
     private val booksList = mutableListOf<Book>()
@@ -74,7 +78,7 @@ class BookListFragment : Fragment() {
 
             // Update the adapter or UI here if needed (e.g., displaying in a ListView)
             Log.d("BookList", "loadBooksFromSharedPreferences: $booksList")
-            binding.recyclerListView.adapter = BookAdapter(booksList) { book ->
+            bookAdapter = BookAdapter(booksList) { book ->
                 // Navigate to detail activity
                 val intent = Intent(requireContext(), BookDetailActivity::class.java)
                 intent.putExtra("id", book.id.toString())
@@ -87,9 +91,31 @@ class BookListFragment : Fragment() {
                 Log.d("ID3", "loadBooksFromSharedPreferences: ${book.id}")
                 startActivity(intent)
             }
+            binding.recyclerListView.adapter = bookAdapter
             // Add divider
             val dividerItemDecoration = DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL)
             binding.recyclerListView.addItemDecoration(dividerItemDecoration)
+
+            binding.searchEditText.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                    val filteredBooks = searchBooks(booksList, s.toString())
+                    bookAdapter.updateBooks(filteredBooks)
+                }
+
+                override fun afterTextChanged(s: Editable?) {}
+            })
+
+        }
+    }
+
+    private fun searchBooks(
+        booksList: List<Book>,
+        query: String
+    ): List<Book> {
+        return booksList.filter { book ->
+            book.bookName.contains(query, ignoreCase = true)
         }
     }
 
