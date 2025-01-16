@@ -1,5 +1,6 @@
 package com.viewsandevents
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -76,6 +77,10 @@ class Lession3Activity : AppCompatActivity() {
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.fragment_container, BookListFragment()).commit()
                 binding.navigationView.setCheckedItem(R.id.list_book)
+            }
+            R.id.add_user_detail -> {
+                val intent = Intent(this, Lession4FirstActivity::class.java)
+                startActivity(intent)
             }
         }
         menuItem.isChecked = true
