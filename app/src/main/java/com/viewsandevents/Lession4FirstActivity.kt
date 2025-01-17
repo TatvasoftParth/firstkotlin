@@ -14,8 +14,8 @@ import java.util.Calendar
 class Lession4FirstActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLession4FirstBinding
     override fun onCreate(savedInstanceState: Bundle?) {
-        val primaryBoard = arrayOf("SSC", "HHC")
-        val secondaryBoard = arrayOf("BCA", "B.COM")
+        val primaryBoard = Constants.PRIMARY_BOARD
+        val secondaryBoard = Constants.SECONDARY_BOARD
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityLession4FirstBinding
@@ -139,9 +139,9 @@ class Lession4FirstActivity : AppCompatActivity() {
             Toast.makeText(this,
                 getString(R.string.please_select_your_date_of_birth), Toast.LENGTH_SHORT).show()
         } else if (TextUtils.isEmpty(binding.spinnerSscHsc.text)) {
-            Toast.makeText(this, "Please select SSC/HSC", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.please_select_ssc_hsc), Toast.LENGTH_SHORT).show()
         } else if (TextUtils.isEmpty(binding.spinnerBcaBcom.text)) {
-            Toast.makeText(this, "Please select BCA/B.COM", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.please_select_bca_b_com), Toast.LENGTH_SHORT).show()
         } else {
             // Successful submission
             successfullySubmitted()

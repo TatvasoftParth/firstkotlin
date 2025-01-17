@@ -89,4 +89,6 @@
     <string name="select_bca_b_com">Select BCA/B.COM</string>
     <string name="bca_b_com_percentage">BCA/B.COM Percentage:</string>
     <string name="add_user_detail">Add User Detail</string>
+    <string name="please_select_ssc_hsc">Please select SSC/HSC</string>
+    <string name="please_select_bca_b_com">Please select BCA/B.COM</string>
 </resources>
