@@ -34,11 +34,25 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    sourceSets {
+        getByName("main") {
+            java {
+                srcDirs("src/main/java", "src/main/java/com/viewsandevents/utils",
+                    "src/main/java/com/viewsandevents/api"
+                )
+            }
+        }
+    }
 }
 
 dependencies {
 
-    implementation("com.google.code.gson:gson:2.10.1")
+    implementation(libs.gson)
+    implementation(libs.play.services.maps)
+    implementation(libs.play.services.location)
+    implementation(libs.retrofit)
+    implementation (libs.converter.gson)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

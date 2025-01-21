@@ -82,6 +82,10 @@ class Lession3Activity : AppCompatActivity() {
                 val intent = Intent(this, Lession4FirstActivity::class.java)
                 startActivity(intent)
             }
+            R.id.list_bookmarks -> {
+                val intent = Intent(this, Lesson5FirstActivity::class.java)
+                startActivity(intent)
+            }
         }
         menuItem.isChecked = true
         binding.myDrawerLayout.closeDrawer(GravityCompat.START)

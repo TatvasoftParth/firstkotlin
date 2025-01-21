@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,6 +15,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ViewsAndEvents"
         tools:targetApi="31">
+        <activity
+            android:name=".Lesson5DetailActivity"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCRO3yvfOiP9dF4K78KtcHuKYk02ABZlGc" />
+
+        <activity
+            android:name=".Lesson5SecondActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Lesson5FirstActivity"
+            android:exported="false" />
         <activity
             android:name=".Lession4FirstActivity"
             android:exported="false" />

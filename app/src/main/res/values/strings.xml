@@ -91,4 +91,11 @@
     <string name="add_user_detail">Add User Detail</string>
     <string name="please_select_ssc_hsc">Please select SSC/HSC</string>
     <string name="please_select_bca_b_com">Please select BCA/B.COM</string>
+    <string name="bookmark_list">Bookmark List</string>
+    <string name="longitude">Longitude</string>
+    <string name="latitude">Latitude</string>
+    <string name="weather_description">Weather Description</string>
+    <string name="temperature">Temperature</string>
+    <string name="city">City</string>
+    <string name="add_locations">Add Locations</string>
 </resources>
