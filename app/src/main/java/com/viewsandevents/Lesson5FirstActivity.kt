@@ -29,7 +29,7 @@ class Lesson5FirstActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        sharedPreferencesHelper = SharedPreferencesHelper(this, "locations_pref")
+        sharedPreferencesHelper = SharedPreferencesHelper(this, Constants.LOCATION_PREF)
 
         // Retrieve locations from SharedPreferences
         setLocationAdapter()
