@@ -11,5 +11,7 @@
         android:title="@string/add_user_detail" android:icon="@drawable/ic_circle_outline" />
     <item android:id="@+id/list_bookmarks"
         android:title="@string/bookmark_list" android:icon="@drawable/ic_circle_outline" />
+        <item android:id="@+id/list_image"
+            android:title="@string/image_list" android:icon="@drawable/ic_circle_outline" />
     </group>
 </menu>

@@ -99,4 +99,17 @@
     <string name="city">City</string>
     <string name="add_locations">Add Locations</string>
     <string name="marker">Marker</string>
+    <string name="open_settings">Open Settings</string>
+    <string name="image">Image</string>
+    <string name="image_list">Image List</string>
+    <string name="save">Save</string>
+    <string-array name="color_options">
+        <item>Red</item>
+        <item>Blue</item>
+        <item>Green</item>
+    </string-array>
+    <string-array name="folder_options">
+        <item>/storage/emulated/0/Pictures</item>
+        <item>/storage/emulated/0/DCIM</item>
+    </string-array>
 </resources>

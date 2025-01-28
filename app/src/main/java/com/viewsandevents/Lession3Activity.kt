@@ -86,6 +86,10 @@ class Lession3Activity : AppCompatActivity() {
                 val intent = Intent(this, Lesson5FirstActivity::class.java)
                 startActivity(intent)
             }
+            R.id.list_image -> {
+                val intent = Intent(this, Lesson6FirstActivity::class.java)
+                startActivity(intent)
+            }
         }
         menuItem.isChecked = true
         binding.myDrawerLayout.closeDrawer(GravityCompat.START)
