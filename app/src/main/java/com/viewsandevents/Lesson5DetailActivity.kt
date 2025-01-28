@@ -30,8 +30,8 @@ class Lesson5DetailActivity : AppCompatActivity() {
             insets
         }
         // Get the passed location data from the intent
-        latitude = intent.getDoubleExtra("latitude", 0.0)
-        longitude = intent.getDoubleExtra("longitude", 0.0)
+        latitude = intent.getDoubleExtra(Constants.LATITUDE, 0.0)
+        longitude = intent.getDoubleExtra(Constants.LONGITUDE, 0.0)
 
         // Fetch weather data
         fetchWeatherData(latitude, longitude)

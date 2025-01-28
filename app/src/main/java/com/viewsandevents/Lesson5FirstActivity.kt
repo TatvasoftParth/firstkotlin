@@ -2,7 +2,6 @@ package com.viewsandevents
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -51,7 +50,6 @@ class Lesson5FirstActivity : AppCompatActivity() {
 
     private fun setLocationAdapter() {
         locations = getLocationsFromSharedPreferences().toMutableList()
-        Log.d("Location", "onCreate: $locations")
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
 
         // Set up the adapter with item click and remove bookmark actions
@@ -69,7 +67,7 @@ class Lesson5FirstActivity : AppCompatActivity() {
     }
 
     private fun getLocationsFromSharedPreferences(): List<Location> {
-        val json = sharedPreferencesHelper.getString("locations", null)
+        val json = sharedPreferencesHelper.getString(Constants.LOCATION_KEY, null)
 
         return if (json != null) {
             // Convert JSON string to List<Location>
@@ -85,7 +83,7 @@ class Lesson5FirstActivity : AppCompatActivity() {
 
         // Convert list to JSON string
         val json = gson.toJson(locations)
-        sharedPreferencesHelper.putString("locations", json)
+        sharedPreferencesHelper.putString(Constants.LOCATION_KEY, json)
     }
 
     // Handle location item click
@@ -109,8 +107,8 @@ class Lesson5FirstActivity : AppCompatActivity() {
     // Navigate to DetailActivity with location data
     private fun navigateToDetail(location: Location) {
         val intent = Intent(this, Lesson5DetailActivity::class.java).apply {
-            putExtra("latitude", location.latitude)
-            putExtra("longitude", location.longitude)
+            putExtra(Constants.LATITUDE, location.latitude)
+            putExtra(Constants.LONGITUDE, location.longitude)
         }
         startActivity(intent)
     }

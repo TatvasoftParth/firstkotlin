@@ -2,7 +2,6 @@ package com.viewsandevents
 
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -41,7 +40,7 @@ class Lesson5SecondActivity : AppCompatActivity(), OnMapReadyCallback {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        sharedPreferencesHelper = SharedPreferencesHelper(this, "locations_pref")
+        sharedPreferencesHelper = SharedPreferencesHelper(this, Constants.LOCATION_PREF)
         // Initialize the map with a Bundle
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         var mapViewBundle: Bundle? = null
@@ -94,11 +93,10 @@ class Lesson5SecondActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     private fun updateMarker(latLng: LatLng) {
-        Log.d("latLng", "updateMarker: $latLng")
         if (currentMarker == null) {
             // Add a new marker if it doesn't exist
             currentMarker = googleMap?.addMarker(
-                MarkerOptions().position(latLng).title("Marker")
+                MarkerOptions().position(latLng).title(getString(R.string.marker))
             )
         } else {
             // Update the marker's position if it already exists
@@ -111,12 +109,11 @@ class Lesson5SecondActivity : AppCompatActivity(), OnMapReadyCallback {
         if (markerPosition != null) {
             // Get the saved locations list
             val locationsList = getSavedLocations()
-            Log.d("TAG", "getSavedLocations: $locationsList")
 
             // Add the current marker's position to the list
             val newLocation = mapOf(
-                "latitude" to markerPosition.latitude,
-                "longitude" to markerPosition.longitude
+                Constants.LATITUDE to markerPosition.latitude,
+                Constants.LONGITUDE to markerPosition.longitude
             )
             locationsList.add(newLocation)
 
@@ -129,7 +126,7 @@ class Lesson5SecondActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     private fun getSavedLocations(): MutableList<Map<String, Double>> {
-        val json = sharedPreferencesHelper.getString("locations", null)
+        val json = sharedPreferencesHelper.getString(Constants.LOCATION_KEY, null)
         return if (json != null) {
             val type = object : TypeToken<List<Location>>() {}.type
             gson.fromJson(json, type)
@@ -140,7 +137,7 @@ class Lesson5SecondActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private fun saveLocationsToSharedPreferences(locations: List<Map<String, Double>>) {
         val json = gson.toJson(locations) // Convert the list to a JSON string
-        sharedPreferencesHelper.putString("locations", json) // Save to SharedPreferences
+        sharedPreferencesHelper.putString(Constants.LOCATION_KEY, json) // Save to SharedPreferences
     }
 
 
